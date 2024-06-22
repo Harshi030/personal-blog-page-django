@@ -1,0 +1,33 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %}
+All Posts
+{% endblock title %}
+
+
+{% block css_files %}
+<link rel="stylesheet" href="{% static "blog/allposts.css" %}">
+{% endblock css_files %}
+
+
+{% block content %}
+
+<div class="container">
+<h1>My Collected Posts</h1>
+<div class="container-cards">
+{% for post in posts  %}
+
+<div class="card">
+  <a href="{% url "single-post" post.slug %}">
+  <img  src={{post.image_name.url}} alt=""/>
+  <h3>{{post.title}}</h3>
+  <p>{{post.excerpt}}</p>
+  </a>
+</div>
+
+{% endfor %}
+</div>
+</div>
+
+{% endblock content %}

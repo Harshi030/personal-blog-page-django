@@ -1,0 +1,43 @@
+{% extends "base.html" %}
+{% load static %}
+  {% block title %}
+    Home Page
+  {% endblock title %} 
+  
+  {% block css_files %}
+  <link rel="stylesheet" href="{% static "blog/mainpage.css" %}">
+  {% endblock css_files %}
+
+  {% block content %}
+   <nav>
+    <section class="photo-content">
+    <img  src={% static "blog/images/myimage.jpg" %} alt="">
+    <h1>Harshith's <br/>Blog</h1>
+    </section>
+    <p>Hi,I am Harshith Lavuluri and I love to blog about new places.</p>
+   </nav>
+
+   <section class="latest-thoughts">
+    <p>My Latest Thoughts </p>
+    <div class="latest-thoughts-cards">
+      {% for post in latest_posts  %}
+    
+      <div class="card">
+        <a href="{% url "single-post" post.slug %}">
+        <img  src={{post.image_name.url}} alt=""/>
+        <h3>{{post.title}}</h3>
+        <p>{{post.excerpt}}</p>
+        </a>
+      </div>
+    
+      {% endfor %}
+    </div>
+   </section>
+
+  <div class="about-me">
+   <article>
+    <h2>About Me</h2>
+    <p>I created this blog to share my travel experiences, culinary experiments, and tips on making the most of your adventures. My goal is to inspire others to step out of their comfort zones and explore the world.</p>
+   </article>
+  </div>
+  {% endblock content %}

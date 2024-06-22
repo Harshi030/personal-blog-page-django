@@ -1,0 +1,27 @@
+
+  *{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+
+  header{
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    height: 80px;
+    background-color: #0453a8;
+  }
+  header section{
+    display: flex;
+    align-items: center;
+    gap: 30px;
+  }
+
+  header a{
+    text-decoration: none;
+    color: white;
+    font-size: 23px;
+  }
+
+  
